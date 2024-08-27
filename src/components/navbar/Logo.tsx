@@ -1,5 +1,13 @@
-import React from "react";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { VscCode } from "react-icons/vsc";
 
 export default function Logo() {
-  return <div>Logo</div>;
+  return (
+    <Button asChild>
+      <Link href='/'>
+        <VscCode className='w-6 h-6' />
+      </Link>
+    </Button>
+  );
 }
