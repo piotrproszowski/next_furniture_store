@@ -20,9 +20,11 @@ export default function LinksDropdown() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-48' align='start' sideOffset={10}>
         {navLinks.map((link: NavLink) => (
-          <Link key={link.href} href={link.href}>
-            <DropdownMenuItem>{link.label}</DropdownMenuItem>
-          </Link>
+          <DropdownMenuItem key={link.href}>
+            <Link href={link.href} className='capitalize w-full'>
+              {link.label}
+            </Link>
+          </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
