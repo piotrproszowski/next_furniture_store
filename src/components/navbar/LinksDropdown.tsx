@@ -1,5 +1,30 @@
-import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { LuAlignLeft } from "react-icons/lu";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { navLinks, NavLink } from "@/utils/links";
 
 export default function LinksDropdown() {
-  return <div>LinksDropdown</div>;
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='outline' className='flex gap-4 max-w-[100px]'>
+          <LuAlignLeft className='w-6 h-6' />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className='w-48' align='start' sideOffset={10}>
+        {navLinks.map((link: NavLink) => (
+          <Link key={link.href} href={link.href}>
+            <DropdownMenuItem>{link.label}</DropdownMenuItem>
+          </Link>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
