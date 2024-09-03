@@ -1,22 +1,20 @@
-import db from "@/utils/db";
 import React from "react";
 
-export default async function AboutPage() {
-  const profile = await db.testProfile.create({
-    data: {
-      name: "random name",
-    },
-  });
-  const users = await db.testProfile.findMany();
+export default function AboutPage() {
   return (
-    <div>
-      {users.map((user) => {
-        return (
-          <h2 key={user.id} className='text-2xl font-bold'>
-            {user.name}
-          </h2>
-        );
-      })}
-    </div>
+    <section>
+      <h1 className='flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center text-4xl font-bold leading-none tracking-wide sm:text-6xl'>
+        We love
+        <span className='bg-primary py-2 px-4 rounded-lg tracking-widest text-white'>
+          store
+        </span>
+      </h1>
+      <p className='mt-6 text-lx tracking-wide leading-8 max-w-2xl mx-auto text-muted-foreground'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et rem
+        voluptatibus similique laudantium saepe. Accusamus ducimus, eveniet a
+        harum hic vitae saepe architecto. Quidem illum dignissimos quasi
+        blanditiis distinctio beatae!
+      </p>
+    </section>
   );
 }
